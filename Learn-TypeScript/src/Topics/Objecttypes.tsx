@@ -10,6 +10,16 @@ function Objecttypes() {
         year : 2024,
     }
     console.log(obj)
+
+    // Type Inference in Object Typed....
+
+    //obj.modal = 'jutt' //error 
+
+    const obj1 : {type : string , maliage? : number} = {
+      type : 'Civic'
+    } 
+    obj1.maliage= 2222;
+    console.log(obj1)
   return (
     <div>
         Object Types
