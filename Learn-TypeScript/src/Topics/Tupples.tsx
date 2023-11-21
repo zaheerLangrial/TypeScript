@@ -93,9 +93,107 @@ console.log(count)
 // Question no 10 => 
 // Convert to List: Convert the all_fruits tuple to a list named all_fruits_list and print the list.
 
-
 const newAllFriut: string[] = [...allFruit]
 console.log(newAllFriut)
+
+// Pracitse ChatGPT.....
+
+
+// 1. **Tuple Declaration:**
+//    - Declare a tuple containing a string, a number, and a boolean.
+
+      const arr: [string , number , boolean] = ['Zaheer Ahmad' , 123 , true]
+      console.log(arr)
+
+// 2. **Tuple Initialization:**
+//    - Create an instance of the tuple declared in question 1 with specific values.
+
+      // Done
+
+// 3. **Accessing Tuple Elements:**
+//    - Access the second element of a tuple and log it to the console.
+
+console.log(arr[1])
+
+// 4. **Updating Tuple Elements:**
+//    - Update the third element of a tuple with a new value.
+
+arr[2] = false
+console.log(arr)
+
+// 5. **Tuple Length:**
+//    - Determine the length of a tuple.
+
+console.log(arr.length)
+
+// 6. **Nested Tuples:**
+//    - Create a tuple containing another tuple as one of its elements.
+
+const nestedTuple: [string , number , boolean , [string , string]] = ["apple", 42, true, ["nested", "tuple"]];
+console.log(nestedTuple[3])
+
+// 7. **Tuple Unpacking:**
+//    - Use tuple unpacking to assign values from a tuple to multiple variables.
+
+      // Tupple unpacking mean array destracting
+      // Done
+
+// 8. **Array to Tuple Conversion:**
+//    - Convert an array to a tuple.
+
+      // Done
+
+// 9. **Tuple Concatenation:**
+//    - Concatenate two tuples into a new tuple.
+
+        // Done 
+        // Like as array 
+
+// 10. **Tuple Destructuring in Function Parameters:**
+//     - Declare a function that accepts a tuple as a parameter and log its elements.
+
+      const tupleFunction = (arr:[string , number]) => {
+        arr.forEach(element => {
+          console.log(element)
+        })
+      }
+      tupleFunction(['Zaheer' , 324])
+
+// 11. **Tuple with Optional Elements:**
+//     - Declare a tuple with optional elements.
+
+        let arr1 : [string , number?] = ['Zaheer']
+        console.log(arr1)
+
+// 12. **Tuple with Rest Parameters:**
+//     - Declare a tuple with rest parameters to capture additional elements.
+
+// 13. **Tuple Mapping:**
+//     - Create a new tuple by applying a function to each element of an existing tuple.
+
+// 14. **Filtering Tuples:**
+//     - Filter a tuple to create a new tuple containing only certain elements.
+
+// 15. **Tuple Includes:**
+//     - Check if a specific value exists in a tuple.
+
+// 16. **Tuple IndexOf:**
+//     - Find the index of a specific element in a tuple.
+
+// 17. **Sorting Tuples:**
+//     - Sort a tuple of numbers in ascending order.
+
+// 18. **Tuple Reverse:**
+//     - Reverse the order of elements in a tuple.
+
+// 19. **Slice and Splice with Tuples:**
+//     - Use `slice` and `splice` to extract and modify portions of a tuple.
+
+// 20. **Tuple with Object Elements:**
+//     - Declare a tuple containing both primitive values and an object as elements.
+
+
+
 
 
 

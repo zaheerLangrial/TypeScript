@@ -32,6 +32,14 @@ function Functions() {
     }
     console.log(parameterFunction(10 , 20))
 
+    // Named Parameters 
+    // edi samj ni ai filhal opr wala hi thek ha 
+    const multiply = ({dividend , divisor} : {dividend: number , divisor: number}):void => {
+      console.log(dividend * divisor)
+    }
+    // multiply(dividend:10 , divisor:10)
+
+    
 
   return (
     <div>Functions</div>
