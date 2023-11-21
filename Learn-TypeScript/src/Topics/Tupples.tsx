@@ -174,23 +174,37 @@ console.log(nestedTuple[3])
 // 14. **Filtering Tuples:**
 //     - Filter a tuple to create a new tuple containing only certain elements.
 
+// Done
+
 // 15. **Tuple Includes:**
 //     - Check if a specific value exists in a tuple.
+
+// done
 
 // 16. **Tuple IndexOf:**
 //     - Find the index of a specific element in a tuple.
 
+// Done
+
 // 17. **Sorting Tuples:**
 //     - Sort a tuple of numbers in ascending order.
+
+// Done
 
 // 18. **Tuple Reverse:**
 //     - Reverse the order of elements in a tuple.
 
+// Done
+
 // 19. **Slice and Splice with Tuples:**
 //     - Use `slice` and `splice` to extract and modify portions of a tuple.
 
+// Done
+
 // 20. **Tuple with Object Elements:**
 //     - Declare a tuple containing both primitive values and an object as elements.
+
+// Done
 
 
 
