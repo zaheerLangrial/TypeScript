@@ -30,9 +30,12 @@ const TodoSlice = createSlice({
                 completed : false
             }
             state.push(obj)
+        },
+        update (state , action) {
+            console.log(action.payload)
         }
     }
 })
 
 export default TodoSlice.reducer;
-export const {addTodo} = TodoSlice.actions
+export const {addTodo , update} = TodoSlice.actions
