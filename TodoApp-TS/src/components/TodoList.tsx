@@ -1,30 +1,24 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react'
+import {useSelector} from 'react-redux'
 
-interface Todo {
+
+type Todo = {
     id : number ;
     text : string ;
     completed : boolean;
 }
 
-const TodoList: React.FC = () => {
-const todos = useSelector((state: { todos: Todo[] }) => state.todos) ;
-  console.log(todos)
-
+const  TodoList:React.FC =()=> {
+    const todos : Todo[] = useSelector((state : {todos : Todo[]}) => state.todos)
   return (
-    // <div>
-    //     Hello
-    // </div>
-    <ul className=' mt-5'>
+    <ul className='text-center'>
         {
-            todos.map((todo:Todo) => {
-                return (
-                    <li key={todo.id} className='border'>{todo.text}</li>
-                )
-            })
+            todos.map((todo) => (
+                <li key={todo.id}>{todo.text}</li>
+            ))
         }
     </ul>
-  );
-};
+  )
+}
 
-export default TodoList;
+export default TodoList

@@ -1,43 +1,38 @@
-import {PayloadAction, createSlice} from '@reduxjs/toolkit'
+import {createSlice} from '@reduxjs/toolkit'
 
-interface Todo {
-    id : number ;
-    text : string ;
-    completed : boolean;
-}
 
-const arr  = [
+type Todo = {
+    id: number;
+    text: string;
+    completed: boolean;
+  };
+const arr : Todo[]   = [
     {
         id : 1,
         text : 'Zaheer Ahmad',
         completed : true ,
-    }
+    }, 
+    {
+        id : 2, 
+        text : 'Shahzaib Ahmad',
+        completed : false
+    },
 ]
 
-type TodoState = {
-    todos : Todo[]
-}
-//  
-
-const todoSlice  = createSlice({
+const TodoSlice = createSlice({
     name : 'Todos',
-    initialState : arr, 
+    initialState : arr ,
     reducers : {
-        addTodo: (state, action: PayloadAction<string>) => {
-            state.push({
-              id: state.length + 1,
-              text: action.payload,
-              completed: false,
-            });
-          },
-          toggleTodo: (state, action: PayloadAction<number>) => {
-            const todo = state.find((todo) => todo.id === action.payload);
-            if (todo) {
-              todo.completed = !todo.completed;
+        addTodo (state , action) {
+            let obj : Todo = {
+                id : state.length + 1,
+                text : action.payload,
+                completed : false
             }
-          },
+            state.push(obj)
+        }
     }
 })
 
-export const {addTodo , toggleTodo}  = todoSlice.actions;
-export default todoSlice.reducer;
+export default TodoSlice.reducer;
+export const {addTodo} = TodoSlice.actions
