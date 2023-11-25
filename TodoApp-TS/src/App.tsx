@@ -11,7 +11,7 @@ type Todo = {
   completed: boolean;
 };
 const App: React.FC = () => {
-  const [update , setupdate] = useState<Todo>({})
+  const [update , setupdate] = useState<Todo>()
   const [mudal , setMudal] = useState<boolean>(false)
   return (
     <Provider store={store}>

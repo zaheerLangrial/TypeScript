@@ -31,11 +31,20 @@ const TodoSlice = createSlice({
             }
             state.push(obj)
         },
-        update (state , action) {
-            console.log(action.payload)
+        upDateTodo (state , action) {
+            console.log(action.payload.text)
+            // let obj = action.payload;
+            return state.map((todo) => {
+                if(todo.id === action.payload.id) {
+                    return{...todo , text : action.payload.text}
+                }
+                return todo
+            })
+            // obj?.text  = action.payload.text;
+            // console.log(obj?.text)
         }
     }
 })
 
 export default TodoSlice.reducer;
-export const {addTodo , update} = TodoSlice.actions
+export const {addTodo , upDateTodo} = TodoSlice.actions

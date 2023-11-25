@@ -9,14 +9,14 @@ type Todo = {
 
 interface TodoListProps {
   setMudal: React.Dispatch<React.SetStateAction<boolean>>;
-  setupdate : React.Dispatch<React.SetStateAction<Todo>>;
+  setupdate : React.Dispatch<React.SetStateAction<Todo | undefined>>;
 }
 
 const TodoList: React.FC<TodoListProps> = ({ setMudal , setupdate}) => {
 
   const todos: Todo[] = useSelector((state: { todos: Todo[] }) => state.todos);
 
-  const handleUpdate = (todo: Todo) => {
+  const handleUpdate = (todo : Todo) => {
     setupdate(todo)
     setMudal(true)
   };
