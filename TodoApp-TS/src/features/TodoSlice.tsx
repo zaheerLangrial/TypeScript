@@ -32,16 +32,12 @@ const TodoSlice = createSlice({
             state.push(obj)
         },
         upDateTodo (state , action) {
-            console.log(action.payload.text)
-            // let obj = action.payload;
             return state.map((todo) => {
                 if(todo.id === action.payload.id) {
                     return{...todo , text : action.payload.text}
                 }
                 return todo
             })
-            // obj?.text  = action.payload.text;
-            // console.log(obj?.text)
         }
     }
 })

@@ -13,6 +13,7 @@
     "@fontsource/khula": "^5.0.8",
     "@fontsource/libre-caslon-text": "^5.0.17",
     "@reduxjs/toolkit": "^1.9.7",
+    "antd": "^5.11.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.3"

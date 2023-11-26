@@ -1,3 +1,4 @@
+import { Button } from "antd";
 import React from "react";
 import { useSelector } from "react-redux";
 
@@ -22,16 +23,16 @@ const TodoList: React.FC<TodoListProps> = ({ setMudal , setupdate}) => {
   };
 
   return (
-    <ul className="text-center">
+    <ul className="max-w-xl mx-auto ">
       {todos.map((todo) => (
-        <li key={todo.id}>
+        <li key={todo.id} className="flex justify-between items-center px-5 py-3 border-b">
           <h1>{todo.text}</h1>
-          <button
+          <Button
             onClick={() => handleUpdate(todo)}
-            className=" bg-blue-500 text-white px-2 py-1"
+            className=""
           >
             Update
-          </button>
+          </Button>
         </li>
       ))}
     </ul>

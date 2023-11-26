@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { upDateTodo } from '../features/TodoSlice';
+import { Button, Input } from 'antd';
 
 
 type Todo = {
@@ -22,10 +23,12 @@ const Mudal:React.FC<mudalProps> =({setMudal , mudal , update , setupdate})=> {
     setMudal(false)
   }
   return (
-    <div className={` justify-center items-center w-full h-screen absolute top-0 space-x-3 ${mudal ? 'flex' : 'hidden'}`}>
-        <input type="text" className=' outline-none border px-1' value={update?.text || ''} onChange={(e) => setupdate({...update , text: e.target.value})}/>
-        <button className=' bg-blue-500 text-white px-2 py-1' onClick={handleUpdateButton}>Update</button>
-        <button onClick={() => setMudal(false)} className=' bg-blue-500 text-white px-2 py-1'>Cancel</button>
+    <div className={`items-center justify-center space-y-3 max-w-xl h-screen absolute top-0 right-[40%] flex-col space-x-3 ${mudal ? 'flex' : 'hidden'}`}>
+        <Input type="text" className=' outline-none border px-1' value={update?.text || ''} onChange={(e) => setupdate({...update , text: e.target.value})}/>
+        <div className='flex space-x-3'>
+        <Button type='default' className='' onClick={handleUpdateButton}>Update</Button>
+        <Button type='primary' danger onClick={() => setMudal(false)} className=' bg-blue-500 text-white px-2 py-1'>Cancel</Button>
+        </div>
     </div>
   )
 }
