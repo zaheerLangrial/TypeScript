@@ -34,12 +34,16 @@ const TodoSlice = createSlice({
     initialState : arr ,
     reducers : {
         addTodo (state , action) {
-            let obj : Todo = {
-                id : state.length + 1,
-                text : action.payload,
-                completed : false
-            }
-            state.push(obj)
+            if(action.payload) {
+                let obj : Todo = {
+                    id : state.length + 1,
+                    text : action.payload,
+                    completed : false
+                }
+                state.push(obj)
+            }else {
+                alert('Please Enter Some Text.......')
+            }         
         },
         upDateTodo (state , action) {
             return state.map((todo) => {
