@@ -1,6 +1,7 @@
 import { Button } from "antd";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteTodo } from "../features/TodoSlice";
 
 type Todo = {
   id: number;
@@ -14,6 +15,7 @@ interface TodoListProps {
 }
 
 const TodoList: React.FC<TodoListProps> = ({ setMudal , setupdate}) => {
+  const dispatch = useDispatch()
 
   const todos: Todo[] = useSelector((state: { todos: Todo[] }) => state.todos);
 
@@ -27,12 +29,21 @@ const TodoList: React.FC<TodoListProps> = ({ setMudal , setupdate}) => {
       {todos.map((todo) => (
         <li key={todo.id} className="flex justify-between items-center px-5 py-3 border-b">
           <h1>{todo.text}</h1>
+          <div className="flex space-x-3">
           <Button
             onClick={() => handleUpdate(todo)}
             className=""
           >
             Update
           </Button>
+          <Button
+             onClick={() => dispatch(deleteTodo(todo.id))}
+            type="primary"
+            danger
+          >
+            Delete
+          </Button>
+          </div>
         </li>
       ))}
     </ul>

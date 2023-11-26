@@ -9,12 +9,22 @@ type Todo = {
 const arr : Todo[]   = [
     {
         id : 1,
-        text : 'Zaheer Ahmad',
+        text : 'Zaheer',
         completed : true ,
     }, 
     {
         id : 2, 
-        text : 'Shahzaib Ahmad',
+        text : 'Arooba',
+        completed : false
+    },
+    {
+        id : 3, 
+        text : 'Rimsha',
+        completed : false
+    },
+    {
+        id : 4, 
+        text : 'Hasfa',
         completed : false
     },
 ]
@@ -38,9 +48,12 @@ const TodoSlice = createSlice({
                 }
                 return todo
             })
+        }, 
+        deleteTodo (state , action) {
+            return state.filter((todo) => todo.id !== action.payload)
         }
     }
 })
 
 export default TodoSlice.reducer;
-export const {addTodo , upDateTodo} = TodoSlice.actions
+export const {addTodo , upDateTodo , deleteTodo} = TodoSlice.actions
