@@ -1,5 +1,4 @@
 import { Input } from 'antd'
-import './App.css'
 import { useState } from 'react'
 import { Button, List, DatePicker } from 'antd';
 import moment, { Moment } from 'moment';
