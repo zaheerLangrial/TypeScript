@@ -1,48 +1,41 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { Input, Button, Typography } from 'antd';
+import { Typography } from "antd"
+import Input from "antd/es/input/Input"
+import React, { useState } from "react"
+import {Button} from 'antd'
+import axios from "axios"
 
-const { Title } = Typography;
+const Weather:React.FC =() => {
+  const [city , setCity] = useState<string>('')
+  const [temp , setTemp] = useState<number | null> (null)
 
-const Weather: React.FC = () => {
-  const [city, setCity] = useState<string>('');
-  const [temperature, setTemperature] = useState<number | null>(null);
-
-  const apiKey = 'e4f23b01d16336ae3e19aae80619226f';
+  const apiKey = 'e4f23b01d16336ae3e19aae80619226f'
 
   const fetchWeather = async () => {
-    try {
-      const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
-      );
-        // console.log(response.data.main.temp)
-      setTemperature(response.data.main.temp);
-    } catch (error) {
-      console.error('Error fetching weather:', error);
-    }
-  };
-
+    const res = await axios(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
+    console.log(res.data.main.temp)
+    setTemp(res.data.main.temp)
+  }
   return (
-    <div>
-      <Title level={2}>Weather App</Title>
-      <Input
-        placeholder="Enter city name"
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-      />
+    <div className="MainDev">
+      <Typography.Title level={2}>Weather App</Typography.Title>
+      <Input placeholder="Enter City Name..." value={city} onChange={(e) => setCity(e.target.value)} />
+      <br />
+      <br />
       <Button type="primary" onClick={fetchWeather}>
-        Get Temperature
+        Check Tempature
       </Button>
 
-      {temperature !== null && (
-        <div>
-          <Title level={3}>Temperature:</Title>
-          <Title level={2}>{city.toUpperCase()}</Title>
-          <p>{temperature}°C</p>
-        </div>
-      )}
+      {
+        temp !== null && (
+          <div>
+            <Typography.Title level={1}>Tempature</Typography.Title>
+            <Typography.Title level={3}>{city}</Typography.Title>
+            <p>{temp}</p>
+          </div>
+        )
+      }
     </div>
-  );
-};
+  )
+}
 
-export default Weather;
+export default Weather
