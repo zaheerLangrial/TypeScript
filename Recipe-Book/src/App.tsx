@@ -1,72 +1,52 @@
-// App.tsx
-import React, { useState } from 'react';
-import RecipeList from './components/RecipeList';
-import { Input, Button, Typography } from 'antd';
-import ChickenImg from './assets/pic.jpg'
+import React, { useState } from "react";
+import { Button, Input, Typography } from "antd";
+import RecipePic from "./assets/pic.jpg";
+import RecipeList from "./components/RecipeList";
 
-const { Title } = Typography;
-
-const recipeBook = [
+const recipeBook: { title: string; image: string }[] = [
   {
-    title: 'Spaghetti Bolognese',
-    image: ChickenImg,
+    title: "Spaghetti Bolognese",
+    image: RecipePic,
   },
   {
-    title: 'Chicken Alfredo Pasta',
-    image: ChickenImg,
+    title: "Chicken Alfredo Pasta",
+    image: RecipePic,
   },
   {
-    title: 'Vegetarian Stir-Fry',
-    image: ChickenImg,
+    title: "Vegetarian Stir-Fry",
+    image: RecipePic,
   },
   {
-    title: 'Chocolate Chip Cookies',
-    image: ChickenImg,
+    title: "Chocolate Chip Cookies",
+    image: RecipePic,
   },
-  // Add more recipes as needed
 ];
 
-
 const App: React.FC = () => {
-  const [query, setQuery] = useState<string>('');
-  const [recipes, setRecipes] = useState<{ title: string; image: string }[]>(recipeBook);
-
-  // const apiKey = 'YOUR_EDAMAM_API_KEY'; // Replace with your Edamam API key
-
-  const searchRecipes = () => {
-    const searchRecipe = recipes.filter((dish) => dish.title.toLowerCase().includes(query.toLowerCase()))
-    if(searchRecipe) {
+  const [input , setInput] = useState('')
+  const [recipes, setRecipes] =
+    useState<{ title: string; image: string }[]>(recipeBook);
+    const handleSearch = () => {
+      const searchRecipe = recipes.filter((recipe) => recipe.title.toLowerCase().includes(input.toLowerCase()))
       setRecipes(searchRecipe)
-    }else {
-      console.log('Cannot Found Any Recipe.....')
-      alert('Cannot Found Any Recipe.....')
     }
-   setQuery('')
-  };
-
   return (
     <>
-    <div className=" max-w-xl mx-auto p-4">
-      <Title level={2} className="mb-4">
-        Recipe Book
-      </Title>
-      <div className="flex items-center mb-4">
-        <Input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Enter ingredient or dish"
-        />
-        <Button type="text" className="ml-2" onClick={searchRecipes}>
+      <div className=" max-w-xl mx-auto px-3">
+        <Typography.Title level={1} type="success" className="text-center">
+          Recipe Book
+        </Typography.Title>
+        <Input placeholder="Search...." value={input} onChange={(e) => setInput(e.target.value)} />
+        <br />
+        <br />
+        <Button type="primary" danger onClick={handleSearch}>
           Search
         </Button>
       </div>
+      <div className=" max-w-6xl mx-auto p-5 ">
+        <RecipeList recipes={recipes} />
       </div>
-      <div className=' max-w-7xl mx-auto'>
-      <RecipeList recipes={recipes} /> 
-      </div>
-      </>
-
+    </>
   );
 };
 
