@@ -42,6 +42,7 @@ const App: React.FC = () => {
         <Button type="primary" danger onClick={handleSearch}>
           Search
         </Button>
+        <Input type="file" />
       </div>
       <div className=" max-w-6xl mx-auto p-5 ">
         <RecipeList recipes={recipes} />
