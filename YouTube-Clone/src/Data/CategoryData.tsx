@@ -1,0 +1,18 @@
+export const categories = [
+    'All' , 
+    'JavaScript',
+    'TypeScript',
+    'Programming',
+    'Travelling',
+    'Cricket World Cup 2023',
+    'Bowling',
+    'Cricket',
+    'React',
+    'NextJs',
+    'UI/UX Design',
+    'Object Oriented Programming',
+    'FrontEnd Develper',
+    'Backend Developer',
+    'Web Developer',
+    'Coding',
+]
