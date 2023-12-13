@@ -2,8 +2,12 @@ import {useSelector } from 'react-redux'
 import { TodosType } from '../App'
 import TodoCard from './TodoCard'
 
-function TodoList() {
 
+// type TodoListPropsType = {
+//   setMudalIsOpen : React.Dispatch<React.SetStateAction<boolean>>;
+// }
+
+function TodoList() {
     const Todos = useSelector((state: { todos: TodosType}) => state.todos.todos)
   return (
     <ul className='max-w-2xl mx-auto'>

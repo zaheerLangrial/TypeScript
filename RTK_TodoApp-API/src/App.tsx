@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
 import './App.css'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchData } from './Features/TodosSlice';
 import { AppDispatch } from './store/Store';
 import AddTodos from './Components/AddTodos';
@@ -14,11 +14,12 @@ export type TodosType = {
 }
 
 function App() {
+  const [updateInputData , setUpdateInputData] = useState<TodosType | null>(null)
 
   const dispatch: AppDispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchData())
-  }, [dispatch])
+  },[dispatch])
 
   return (
     <>

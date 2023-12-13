@@ -1,12 +1,17 @@
-import React from 'react'
 import { useDispatch } from 'react-redux'
 import { addTodo } from '../Features/TodosSlice';
 
 function AddTodos() {
     const dispatch = useDispatch()
-    const handleFrom = (e) => {
+    const handleFrom = (e: React.ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
-        dispatch(addTodo(e.target.text.value))
+        if (e.target.text.value) {
+            dispatch(addTodo(e.target.text.value))
+            e.target.text.value = ''
+            window.location.reload();
+        } else {
+            alert('Please Enter Strings')
+        }
     }
     return (
         <div className=' max-w-2xl mx-auto flex flex-col justify-center'>
